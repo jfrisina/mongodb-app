@@ -12,7 +12,7 @@ import dotenv from "dotenv"; // an npm package that loads the variables from .en
 dotenv.config();
 
 // connect to Mongoose
-await mongoose.connect(process.env.ATLAS_URI);
+//await mongoose.connect(process.env.ATLAS_URI);
 
 // add try/catch block for error handling for if there's an issue connecting to mongoose
   
@@ -33,7 +33,7 @@ app.use(express.json());
 
 // set up home page GET 
 app.get('/', (req, res) => {
-	res.send("My Events API");
+	res.send("My AirBNB/Events API");
 });
 
 
