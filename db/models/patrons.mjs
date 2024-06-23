@@ -21,7 +21,7 @@ const patronSchema = new mongoose.Schema({
 	},
 	phone: {
 		type: String, 
-		match: [\d{10}, 'Please enter a valid phone number.']
+		match: [/\d{10}/, 'Please enter a valid phone number.']
 	}
 });
 

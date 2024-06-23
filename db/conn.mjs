@@ -19,7 +19,7 @@ try {
 }
 
 // select which database to connect to
-let db = conn.db("sample_airbnb"); // add collection name here, ex. "sample_training"
+let db = conn.db(""); // add collection name here, ex. "sample_training"
 
 // exporting this whole file of code as a module called db
 export default db;
