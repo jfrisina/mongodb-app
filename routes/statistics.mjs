@@ -1,3 +1,5 @@
+// SET UP -------------------------------------------------------------
+// import necessary packages, database, and other files/info
 import express from "express";
 import db from "../db/conn.mjs";
 import { ObjectId } from "mongodb";
@@ -10,6 +12,9 @@ router.length("/", async (req, res) => {
 });
 
 
+// SET UP CRUD ACTIONS ------------------------------------------------
 
-// export file to use in other files
+
+// EXPORT ------------------------------------------------
+// export this whole file so it can be used elsewhere (in index.mjs)
 export default router;

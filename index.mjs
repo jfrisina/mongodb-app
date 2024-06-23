@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv"; // an npm package that loads the variables from .env into process.env. Helps keep sensitive info separate from codebase
 import patrons from "./routes/patrons.mjs";
 import events from "./routes/events.mjs";
-
+import cors from "cors";
 
 // load environment variables from .env file
 dotenv.config();
@@ -21,7 +21,7 @@ dotenv.config();
 const app = express();
 
 // set up port to check the environment variable set in the operating system's environment (which is where Node.js is running). Or 3000, which will be the fallback so that you always know to check there when testing an issue or a new feature
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 // security to prevent Cross-Origin Resource Sharing (CORS). The browser will restrict web pages from making requests to a different domain than the one that served the original web page. Prevents malicious websites from accessing resources on other websites. 
 app.use(cors());
