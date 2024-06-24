@@ -31,7 +31,7 @@ app.use(express.json());
 
 // set up home page GET 
 app.get('/', (req, res) => {
-	res.send("My AirBNB/Events API");
+	res.send("My Events App");
 });
 
 // Load routes
