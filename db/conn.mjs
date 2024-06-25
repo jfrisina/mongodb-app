@@ -23,8 +23,8 @@ try {
 	console.error(e);
 }
 
-// select which database to connect to
-let db = conn.db("events-app"); // add collection name here, ex. "sample_training"
+// select which database to connect to - name the database with an undersore next time instead of a hyphen
+let db = conn.db("events-app"); // add database name here, ex. "sample_training"
 
 // exporting this whole file of code as a module called db
 export default db;

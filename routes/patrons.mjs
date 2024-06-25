@@ -19,12 +19,13 @@ router.post('/', async (req, res) => {
 	} catch (error) {
 		res.status(500).json({error: error.message });
 	}
+	// QUESTION: Do I have to use schemas if I'm using mongoose? I originally had the below code, but then was told that I need to refactor my code to fit with mongoose. 
 	// if I was using plain mongodb without mongoose:
-	// let collection = await db.collection("patrons");
-	// let newDocument = req.body;
-	// newDocument.date = new Date();
-	// let result = await collection.insertOne(new Document);
-	// res.send(result).status(204);
+		// let collection = await db.collection("patrons");
+		// let newDocument = req.body;
+		// newDocument.date = new Date();
+		// let result = await collection.insertOne(new Document);
+		// res.send(result).status(204);
 });
 
 // set up /patrons page to provide all patron info 

@@ -35,6 +35,8 @@ app.use("/events", events);
 
 // global error handling
 app.use((err, _req, res, next) => {
+	// show the error stack trace for debugging
+	console.error(err.stack); 
 	res.status(500).send("An unexpected error has occured.")
 });
 
