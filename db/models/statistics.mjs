@@ -10,7 +10,7 @@ const statisticSchema = new mongoose.Schema({
 		maxLength: 9000,
 		required: true
 	},
-	programname: {
+	eventname: {
 		type: String,
 		required: true
 	}, 

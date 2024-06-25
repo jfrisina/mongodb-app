@@ -10,12 +10,7 @@ import cors from "cors";
 dotenv.config();
 
 // connect to Mongoose
-//await mongoose.connect(process.env.ATLAS_URI);
-
-// add try/catch block for error handling for if there's an issue connecting to mongoose
-  
-
-
+await mongoose.connect(process.env.ATLAS_URI);
 
 // set up express variable so you can use express functions
 const app = express();

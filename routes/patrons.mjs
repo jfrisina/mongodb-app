@@ -11,16 +11,30 @@ const router = express.Router();
 // SET UP CRUD ACTIONS ------------------------------------------------
 // set up to create a new patron 
 router.post('/', async (req, res) => {	
-	let collection = await db.collection("patrons");
-	let newDocument = req.body;
-	newDocument.date = new Date();
-	let result = await collection.insertOne(new Document);
-	res.send(result).status(204);
+	try {
+		let newPatron = new patronModel(req.body);
+		newPatron.date = new Date();
+		let result = await newPatron.save();
+		res.status(201).json(result);
+	} catch (error) {
+		res.status(500).json({error: error.message });
+	}
+	// if I was using plain mongodb without mongoose:
+	// let collection = await db.collection("patrons");
+	// let newDocument = req.body;
+	// newDocument.date = new Date();
+	// let result = await collection.insertOne(new Document);
+	// res.send(result).status(204);
 });
 
 // set up /patrons page to provide all patron info 
 router.get('/', async (req, res) => {
-	res.send('Getting all patron info');
+	try {
+		let patrons = await patronModel.find();
+		res.status(200).json(patrons);
+	} catch (error) {
+		res.status(500).json({ error: error.message })
+	}
 }); 
 
 // set up to delete patron
