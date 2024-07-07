@@ -34,7 +34,7 @@ router.get('/', async (req, res) => {
 		let patrons = await patronModel.find();
 		res.status(200).json(patrons);
 	} catch (error) {
-		res.status(500).json({ error: error.message })
+		res.status(500).json({ error: error.message });
 	}
 }); 
 

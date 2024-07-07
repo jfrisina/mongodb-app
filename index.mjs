@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv"; // an npm package that loads the variables from .env into process.env. Helps keep sensitive info separate from codebase
 import patrons from "./routes/patrons.mjs";
 import events from "./routes/events.mjs";
+import statistics from "./routes/statistics.mjs";
 import cors from "cors";
 
 // load environment variables from .env file
@@ -14,6 +15,10 @@ await mongoose.connect(process.env.ATLAS_URI);
 
 // set up express variable so you can use express functions
 const app = express();
+
+// serve static files from "public" directory
+app.use(express.static('public'));
+console.log("Static files served");
 
 // set up port to check the environment variable set in the operating system's environment (which is where Node.js is running). Or 3000, which will be the fallback so that you always know to check there when testing an issue or a new feature
 const PORT = process.env.PORT || 5000;
@@ -26,12 +31,13 @@ app.use(express.json());
 
 // set up home page GET 
 app.get('/', (req, res) => {
-	res.send("My Events App");
+	res.send("My Events App Home Page");
 });
 
 // Load routes
 app.use("/patrons", patrons);
 app.use("/events", events);
+app.use("/statistics", statistics);
 
 // global error handling
 app.use((err, _req, res, next) => {

@@ -8,6 +8,7 @@ const router = express.Router();
 
 
 // SET UP CRUD ACTIONS ------------------------------------------------
+// create
 // create a new event, whether it's to an already existing event series, or as a standalone event
 router.post('/', async (req, res) => {
 	try {
@@ -34,13 +35,10 @@ router.post('/', async (req, res) => {
 }
 });
 
-
 // read
 router.get('/', async (req, res) => {
 	try {
-		console.log("before find events db")
 		const result = await Event.find();
-		console.log(result)
 		res.json(result);
 	} catch (err) {
 		console.error(err);
