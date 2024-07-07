@@ -2,8 +2,10 @@
 // import necessary packages, database, and other files/info
 import express from "express";
 import Event from "../db/models/events.mjs";
+import mongoose from "mongoose";
 // set up using router function from express by setting to a variable
 const router = express.Router();
+
 
 // SET UP CRUD ACTIONS ------------------------------------------------
 // create a new event, whether it's to an already existing event series, or as a standalone event
@@ -38,6 +40,7 @@ router.get('/', async (req, res) => {
 	try {
 		console.log("before find events db")
 		const result = await Event.find();
+		console.log(result)
 		res.json(result);
 	} catch (err) {
 		console.error(err);
